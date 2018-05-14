@@ -1,0 +1,7 @@
+/node_modules
+src/*.js
+src/**/*.js
+npm-debug.log*
+npm-error.log*
+yarn-debug.log*
+yarn-error.log*

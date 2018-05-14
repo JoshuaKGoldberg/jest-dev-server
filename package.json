@@ -1,0 +1,35 @@
+{
+  "name": "jest-dev-server",
+  "version": "0.1.0",
+  "description": "Creates and tears down a local dev server during Jest tests.",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuakgoldberg/jest-dev-server.git"
+  },
+  "keywords": [
+    "jest",
+    "dev",
+    "server",
+    "localhost",
+    "config",
+    "tests"
+  ],
+  "author": "Josh Goldberg <joshuakgoldberg@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshuakgoldberg/jest-dev-server/issues"
+  },
+  "homepage": "https://github.com/joshuakgoldberg/jest-dev-server#readme",
+  "dependencies": {
+    "cwd": "^0.10.0",
+    "lodash": "^4.17.10",
+    "spawnd": "^2.0.0",
+    "wait-port": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.108",
+    "@types/mz": "0.0.32",
+    "@types/node": "^10.0.8"
+  }
+}
