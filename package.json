@@ -24,6 +24,8 @@
   "dependencies": {
     "cwd": "^0.10.0",
     "lodash": "^4.17.10",
+    "mz": "^2.7.0",
+    "portscanner": "^2.2.0",
     "spawnd": "^2.0.0",
     "wait-port": "^0.2.2"
   },
@@ -31,6 +33,7 @@
     "@types/lodash": "^4.14.108",
     "@types/mz": "0.0.32",
     "@types/node": "^10.0.8",
+    "@types/portscanner": "^2.1.0",
     "typescript": "^2.8.3"
   }
 }

@@ -1,4 +1,5 @@
 import * as cwd from "cwd";
+import * as portscanner from "portscanner";
 import * as spawnd from "spawnd";
 import * as waitPort from "wait-port";
 
@@ -9,21 +10,36 @@ let server: { destroy: () => Promise<void> } | undefined;
 export const setupServer = async () => {
     const config = await readConfig();
 
-	server = spawnd(config.command, {
-		shell: true,
-		env: process.env,
+    if (config.command === undefined) {
+        return;
+    }
+
+    if (config.allowExistingServer && config.port) {
+        const status = await portscanner.checkPortStatus(config.port, "127.0.0.1");
+
+        if (status !== "closed") {
+            return;
+        }
+    }
+
+    server = spawnd(config.command, {
+        shell: true,
+        env: process.env,
         cwd: cwd(),
         ...config.options,
-	});
+    });
 
-	await waitPort({
-		port: config.port,
-		output: "silent",
-	});
+    if (config.port) {
+        await waitPort({
+            output: "silent",
+            port: config.port,
+            timeout: config.launchTimeout,
+        });
+    }
 };
 
 export const teardownServer = async () => {
-	if (server !== undefined) {
-		await server.destroy();
-	}
+    if (server !== undefined) {
+        await server.destroy();
+    }
 };
