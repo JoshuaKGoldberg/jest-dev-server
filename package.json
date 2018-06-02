@@ -1,6 +1,6 @@
 {
   "name": "jest-dev-server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Creates and tears down a local dev server during Jest tests.",
   "main": "./src/index.js",
   "repository": {
